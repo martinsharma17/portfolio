@@ -43,6 +43,7 @@ $(document).ready(function () {
             "Fullstack Developer",
             "Software Developer",
             "Python Developer",
+            "Designer",
             "Founder",
             "Author"
         ],
