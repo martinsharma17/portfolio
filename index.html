@@ -14,6 +14,8 @@
     <link rel='stylesheet'
         href='https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@100;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap"rel="stylesheet'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+
 
 </head>
 
@@ -325,20 +327,20 @@
                 <!-- Reach -->
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form action="#">
+                    <form action="#" id="contactForm">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Your Name" required>
+                                <input type="text" id="name" placeholder="Your Name" required>
                             </div>
                             <div class="field email">
-                                <input type="email" placeholder="Your Email" required>
+                                <input type="email" id="email" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" id="subject" placeholder="Subject" required>
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                            <textarea id="message" cols="30" rows="10" placeholder="Message.." required></textarea>
                         </div>
                         <div class="button-area">
                             <button type="submit">Send message</button>
@@ -347,7 +349,11 @@
                 </div>
             </div>
         </div>
+
     </section>
+    <script>
+        emailjs.init("NvyHRMgufmXze0rJE"); // Replace "your_user_id" with your EmailJS user ID
+    </script>
 
     <!-- Footer -->
     <footer>

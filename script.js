@@ -89,3 +89,65 @@ $(document).ready(function () {
         }
     });
 });
+
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    try {
+        const response = await fetch('http://localhost:3000/submit-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, subject, message }),
+        });
+
+        if (response.ok) {
+            alert('Message sent successfully!');
+            document.getElementById('contactForm').reset();
+        } else {
+            alert('Failed to send message.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error connecting to server.');
+    }
+});
+
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form from submitting the traditional way
+
+    // Collect form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    // Prepare EmailJS template parameters
+    const templateParams = {
+        from_name: name,
+        to_name: email,
+        subject: subject,
+        message: message,
+    };
+
+    // Send email using EmailJS
+    emailjs
+        .send("service_3f2fhoe", "template_lt3wopw", templateParams)
+        .then(function (response) {
+            alert("Message sent successfully!");
+            console.log("SUCCESS!", response.status, response.text);
+        })
+        .catch(function (error) {
+            alert("Failed to send message. Please try again.");
+            console.error("FAILED...", error);
+        });
+
+    // Optionally, reset the form
+    document.getElementById("contactForm").reset();
+});
