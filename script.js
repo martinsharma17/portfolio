@@ -113,7 +113,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
             return;
         } else {
             // alert('Failed to send message.');
-            alert('Error connecting to server.');
+            // alert('Error connecting to server.'); //this was in catch block
         }
     }
     catch (error) {
