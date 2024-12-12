@@ -110,12 +110,14 @@ document.getElementById('contactForm').addEventListener('submit', async function
         if (response.ok) {
             alert('Message sent successfully!');
             document.getElementById('contactForm').reset();
+            return;
         } else {
-            alert('Failed to send message.');
+            // alert('Failed to send message.');
+            alert('Error connecting to server.');
         }
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error:', error);
-        alert('Error connecting to server.');
     }
 });
 
